@@ -12,145 +12,46 @@ const invitation =
     document.getElementById("invitation");
 
 
+openButton.addEventListener("click", function () {
 
-openButton.addEventListener(
-    "click",
-    function () {
+    cover.style.display = "none";
 
-        openButton.classList.add("open");
+    invitation.classList.remove("hidden");
 
+    window.scrollTo(0, 0);
 
-        setTimeout(
-            function () {
-
-                /*
-                 * Hide the envelope
-                 */
-
-                cover.style.display = "none";
-
-
-                /*
-                 * Show invitation
-                 */
-
-                invitation.classList.remove("hidden");
-
-
-                /*
-                 * Start at very top
-                 */
-
-                window.scrollTo({
-                    top: 0,
-                    left: 0,
-                    behavior: "instant"
-                });
-
-
-                document.documentElement.scrollTop = 0;
-
-                document.body.scrollTop = 0;
-
-
-            },
-            850
-        );
-
-    }
-);
+});
 
 
 
 /* =====================================================
-   HOME BUTTON
+   HOME BUTTONS
 ===================================================== */
 
-function goHome(event) {
-
-    /*
-     * Prevent the "#" link
-     * from doing its own navigation.
-     */
-
-    event.preventDefault();
-
-    event.stopPropagation();
+const homeButtons =
+    document.querySelectorAll(".home-button");
 
 
+homeButtons.forEach(function(button) {
 
-    /*
-     * Find the Home section.
-     */
+    button.addEventListener("click", function(event) {
 
-    const home =
-        document.getElementById("home");
+        event.preventDefault();
 
+        /*
+         * This is intentionally using window.scrollTo
+         * instead of href="#home".
+         */
 
-    if (!home) {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        });
 
-        return;
-
-    }
-
-
-
-    /*
-     * Scroll directly to the
-     * Home section.
-     */
-
-    home.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
     });
 
-
-
-    /*
-     * Extra fallback for browsers
-     * that handle scroll differently.
-     */
-
-    setTimeout(
-        function () {
-
-            if (
-                window.scrollY > 20
-            ) {
-
-                window.scrollTo({
-                    top: home.offsetTop,
-                    left: 0,
-                    behavior: "smooth"
-                });
-
-            }
-
-        },
-        150
-    );
-
-
-
-    /*
-     * Remove # from URL.
-     */
-
-    if (
-        window.history &&
-        window.history.replaceState
-    ) {
-
-        window.history.replaceState(
-            null,
-            "",
-            window.location.pathname
-        );
-
-    }
-
-}
+});
 
 
 
@@ -159,14 +60,10 @@ function goHome(event) {
 ===================================================== */
 
 /*
- * CHANGE YOUR BIRTHDAY DATE HERE.
- *
- * Format:
- *
- * "Month Day, Year HH:MM:SS"
+ * CHANGE THIS DATE
  */
 
-const birthday =
+const birthdayDate =
     new Date(
         "September 12, 2026 15:00:00"
     ).getTime();
@@ -180,41 +77,23 @@ function updateCountdown() {
 
 
     const difference =
-        birthday - now;
+        birthdayDate - now;
 
-
-
-    /*
-     * Birthday has arrived.
-     */
 
     if (difference <= 0) {
 
-        document.getElementById(
-            "days"
-        ).textContent = "00";
+        document.getElementById("days").textContent = "00";
 
-        document.getElementById(
-            "hours"
-        ).textContent = "00";
+        document.getElementById("hours").textContent = "00";
 
-        document.getElementById(
-            "minutes"
-        ).textContent = "00";
+        document.getElementById("minutes").textContent = "00";
 
-        document.getElementById(
-            "seconds"
-        ).textContent = "00";
+        document.getElementById("seconds").textContent = "00";
 
         return;
 
     }
 
-
-
-    /*
-     * Calculate days.
-     */
 
     const days =
         Math.floor(
@@ -223,22 +102,12 @@ function updateCountdown() {
         );
 
 
-
-    /*
-     * Calculate hours.
-     */
-
     const hours =
         Math.floor(
             difference /
             (1000 * 60 * 60)
         ) % 24;
 
-
-
-    /*
-     * Calculate minutes.
-     */
 
     const minutes =
         Math.floor(
@@ -247,68 +116,31 @@ function updateCountdown() {
         ) % 60;
 
 
-
-    /*
-     * Calculate seconds.
-     */
-
     const seconds =
         Math.floor(
-            difference /
-            1000
+            difference / 1000
         ) % 60;
 
 
-
-    /*
-     * Display countdown.
-     */
-
-    document.getElementById(
-        "days"
-    ).textContent =
-        String(days).padStart(
-            2,
-            "0"
-        );
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
 
 
-    document.getElementById(
-        "hours"
-    ).textContent =
-        String(hours).padStart(
-            2,
-            "0"
-        );
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
 
 
-    document.getElementById(
-        "minutes"
-    ).textContent =
-        String(minutes).padStart(
-            2,
-            "0"
-        );
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
 
 
-    document.getElementById(
-        "seconds"
-    ).textContent =
-        String(seconds).padStart(
-            2,
-            "0"
-        );
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
 
 }
 
 
-
-/*
- * Start countdown.
- */
-
 updateCountdown();
-
 
 setInterval(
     updateCountdown,
@@ -322,38 +154,26 @@ setInterval(
 ===================================================== */
 
 const rsvpForm =
-    document.getElementById(
-        "rsvpForm"
-    );
+    document.getElementById("rsvpForm");
 
 
-rsvpForm.addEventListener(
-    "submit",
-    function (event) {
+rsvpForm.addEventListener("submit", function(event) {
 
-        event.preventDefault();
+    event.preventDefault();
 
 
-        const formData =
-            new FormData(
-                rsvpForm
-            );
+    const name =
+        rsvpForm.querySelector(
+            "input"
+        ).value;
 
 
-        const name =
-            formData.get("name");
+    document.getElementById("success").textContent =
+        "Thank you, " +
+        name +
+        "! We can't wait to celebrate with you. ♡";
 
 
-        document.getElementById(
-            "success"
-        ).textContent =
+    rsvpForm.reset();
 
-            "Thank you, " +
-            name +
-            "! We can't wait to celebrate with you. ♡";
-
-
-        rsvpForm.reset();
-
-    }
-);
+});
