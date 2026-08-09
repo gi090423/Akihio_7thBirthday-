@@ -1,192 +1,602 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>7th Birthday Invitation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>7th Birthday Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- MUSIC BUTTON -->
 <div class="music-btn" id="musicBtn">♫</div>
 
+
 <!-- ================= COVER ================= -->
+
 <section class="cover" id="cover">
-  <div class="pink-grid"></div>
+
   <div class="flower flower-a">✿</div>
   <div class="flower flower-b">❀</div>
+
   <div class="butterfly butterfly-a">🦋</div>
   <div class="butterfly butterfly-b">🦋</div>
 
+
   <div class="cover-content">
+
     <div class="little-photo">
-      <!-- CHANGE PHOTO: images/cover.jpg -->
       <img src="images/cover.jpg" alt="Birthday girl">
     </div>
 
+
     <div class="cover-copy">
+
       <p>PLEASE JOIN US TO CELEBRATE</p>
-      <h1><span>[CHILD'S NAME]</span></h1>
+
+      <h1>
+        <span>[CHILD'S NAME]</span>
+      </h1>
+
       <h2>7th Birthday</h2>
+
     </div>
 
+
+    <!-- ENVELOPE -->
+
     <div class="envelope-wrap">
-      <button class="envelope" id="openInvitation">
+
+      <button
+        class="envelope"
+        id="openInvitation"
+        aria-label="Open invitation"
+      >
+
         <div class="envelope-body"></div>
+
         <div class="letter">
           <div>You're</div>
           <div>invited!</div>
         </div>
+
         <div class="flap"></div>
-        <div class="seal">✿</div>
+
+        <div class="seal">
+          ✿
+        </div>
+
       </button>
-      <div class="open-text">Click to open!</div>
+
+      <div class="open-text">
+        Click to open!
+      </div>
+
     </div>
+
   </div>
+
 </section>
+
+
 
 <!-- ================= INVITATION ================= -->
-<main id="invitation" class="invitation hidden">
 
-<section class="page hero">
-  <div class="plaid"></div>
-  <div class="decor-flower f1">❀</div>
-  <div class="decor-flower f2">✿</div>
+<main id="invitation" class="hidden">
 
-  <div class="hero-top">
-    <p class="eyebrow">PLEASE JOIN US TO CELEBRATE</p>
-    <h1><span>[CHILD'S NAME]</span></h1>
-    <h2>7th Birthday</h2>
-  </div>
 
-  <div class="portrait-frame">
-    <!-- CHANGE PHOTO: images/main.jpg -->
-    <img src="images/main.jpg" alt="Birthday girl">
-  </div>
+  <!-- HOME / MAIN INVITATION -->
 
-  <p class="story">
-    Once upon a time, a tiny little girl arrived and completed our family.
-    Today, she is growing into a beautiful little person, and we would love
-    for you to be part of her special day.
-  </p>
+  <section
+    class="page hero"
+    id="home"
+  >
 
-  <div class="menu">
-    <a href="#details">EVENT DETAILS</a>
-    <a href="#gifts">GIFT IDEAS</a>
-    <a href="#gallery">MY GALLERY</a>
-    <a href="#rsvp">RSVP HERE!</a>
-  </div>
-</section>
+    <!-- HOME BUTTON -->
+    <a
+      href="#home"
+      class="home-btn"
+      aria-label="Home"
+    >
+      ⌂
+    </a>
 
-<section class="page details" id="details">
-  <div class="section-title">
-    <p class="eyebrow">MARK YOUR CALENDAR</p>
-    <h2>Event <span>Details</span></h2>
-  </div>
 
-  <div class="detail-card">
-    <div class="detail-icon">♡</div>
-    <p class="label">DATE</p>
-    <h3>Saturday, September 12, 2026</h3>
-  </div>
+    <p class="eyebrow">
+      PLEASE JOIN US TO CELEBRATE
+    </p>
 
-  <div class="detail-card">
-    <div class="detail-icon">◷</div>
-    <p class="label">TIME</p>
-    <h3>3:00 PM onwards</h3>
-  </div>
 
-  <div class="detail-card">
-    <div class="detail-icon">⌖</div>
-    <p class="label">VENUE</p>
-    <h3>[VENUE NAME]</h3>
-    <p>[VENUE ADDRESS]</p>
-    <a href="https://maps.google.com" target="_blank">VIEW MAP ↗</a>
-  </div>
+    <h1>
+      <span>[CHILD'S NAME]</span>
+    </h1>
 
-  <div class="detail-card">
-    <div class="detail-icon">✿</div>
-    <p class="label">DRESS CODE</p>
-    <h3>[DRESS CODE]</h3>
-  </div>
-</section>
 
-<section class="page gifts" id="gifts">
-  <p class="eyebrow">A LITTLE NOTE</p>
-  <h2>Gift <span>Ideas</span></h2>
+    <h2>
+      7th Birthday
+    </h2>
 
-  <div class="gift-letter">
-    <p>Your presence is already the best gift! ♡</p>
-    <p>If you'd like to bring something, here are a few things I love:</p>
-    <ul>
-      <li>🎀 Art & craft supplies</li>
-      <li>📚 Story books</li>
-      <li>🧸 Cute toys</li>
-      <li>🌸 Anything pink, pretty & fun!</li>
-    </ul>
-  </div>
-</section>
 
-<section class="page gallery-page" id="gallery">
-  <p class="eyebrow">LITTLE MOMENTS</p>
-  <h2>My <span>Gallery</span></h2>
+    <div class="portrait-frame">
 
-  <div class="photo-grid">
-    <img src="images/gallery1.jpg" alt="">
-    <img src="images/gallery2.jpg" alt="">
-    <img src="images/gallery3.jpg" alt="">
-    <img src="images/gallery4.jpg" alt="">
-  </div>
-</section>
+      <img
+        src="images/main.jpg"
+        alt="Birthday girl"
+      >
 
-<section class="page countdown-page">
-  <p class="eyebrow">COUNTING DOWN THE DAYS</p>
-  <h2>See you in <span>...</span></h2>
+    </div>
 
-  <div class="countdown">
-    <div><strong id="days">00</strong><small>DAYS</small></div>
-    <div><strong id="hours">00</strong><small>HOURS</small></div>
-    <div><strong id="minutes">00</strong><small>MINUTES</small></div>
-    <div><strong id="seconds">00</strong><small>SECONDS</small></div>
-  </div>
-</section>
 
-<section class="page rsvp" id="rsvp">
-  <p class="eyebrow">WE HOPE YOU CAN COME!</p>
-  <h2>RSVP <span>Here!</span></h2>
+    <p class="story">
 
-  <form id="rsvpForm">
-    <input name="name" placeholder="Your name" required>
-    <select name="attendance" required>
-      <option value="">Will you be joining us?</option>
-      <option>Yes! I'll be there 🎉</option>
-      <option>Sorry, I can't make it</option>
-    </select>
-    <input name="guests" type="number" min="1" value="1" placeholder="Number of guests">
-    <textarea name="message" rows="4" placeholder="Leave a birthday message ♡"></textarea>
-    <button type="submit">SEND RSVP ♡</button>
-  </form>
+      Once upon a time, a tiny little girl
+      arrived and completed our family.
 
-  <p id="success"></p>
-</section>
+      Today, she is growing into a beautiful
+      little person, and we would love for you
+      to be part of her special day.
 
-<footer>
-  <div class="footer-flower">❀</div>
-  <p class="eyebrow">WITH LOVE</p>
-  <h2>[CHILD'S NAME]</h2>
-  <p>Can't wait to celebrate with you! ♡</p>
-</footer>
+    </p>
+
+
+    <div class="menu">
+
+      <a href="#details">
+        EVENT DETAILS
+      </a>
+
+      <a href="#gifts">
+        GIFT IDEAS
+      </a>
+
+      <a href="#gallery">
+        MY GALLERY
+      </a>
+
+      <a href="#rsvp">
+        RSVP HERE!
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= DETAILS ================= -->
+
+  <section
+    class="page details"
+    id="details"
+  >
+
+    <!-- HOME -->
+    <a
+      href="#home"
+      class="home-btn"
+      aria-label="Home"
+    >
+      ⌂
+    </a>
+
+
+    <p class="eyebrow">
+      MARK YOUR CALENDAR
+    </p>
+
+
+    <h2>
+      Event
+      <span>Details</span>
+    </h2>
+
+
+    <div class="detail-card">
+
+      <div class="detail-icon">
+        ♡
+      </div>
+
+      <p class="label">
+        DATE
+      </p>
+
+      <h3>
+        Saturday, September 12, 2026
+      </h3>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <div class="detail-icon">
+        ◷
+      </div>
+
+      <p class="label">
+        TIME
+      </p>
+
+      <h3>
+        3:00 PM onwards
+      </h3>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <div class="detail-icon">
+        ⌖
+      </div>
+
+      <p class="label">
+        VENUE
+      </p>
+
+      <h3>
+        [VENUE NAME]
+      </h3>
+
+      <p>
+        [VENUE ADDRESS]
+      </p>
+
+      <a
+        href="https://maps.google.com"
+        target="_blank"
+      >
+        VIEW MAP ↗
+      </a>
+
+    </div>
+
+
+    <div class="detail-card">
+
+      <div class="detail-icon">
+        ✿
+      </div>
+
+      <p class="label">
+        DRESS CODE
+      </p>
+
+      <h3>
+        [DRESS CODE]
+      </h3>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= GIFTS ================= -->
+
+  <section
+    class="page gifts"
+    id="gifts"
+  >
+
+    <!-- HOME -->
+    <a
+      href="#home"
+      class="home-btn"
+      aria-label="Home"
+    >
+      ⌂
+    </a>
+
+
+    <p class="eyebrow">
+      A LITTLE NOTE
+    </p>
+
+
+    <h2>
+      Gift
+      <span>Ideas</span>
+    </h2>
+
+
+    <div class="gift-letter">
+
+      <p>
+        Your presence is already the best gift! ♡
+      </p>
+
+      <p>
+        If you'd like to bring something,
+        here are a few things I love:
+      </p>
+
+
+      <ul>
+
+        <li>
+          🎀 Art & craft supplies
+        </li>
+
+        <li>
+          📚 Story books
+        </li>
+
+        <li>
+          🧸 Cute toys
+        </li>
+
+        <li>
+          🌸 Anything pink, pretty & fun!
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= GALLERY ================= -->
+
+  <section
+    class="page gallery-page"
+    id="gallery"
+  >
+
+    <!-- HOME -->
+    <a
+      href="#home"
+      class="home-btn"
+      aria-label="Home"
+    >
+      ⌂
+    </a>
+
+
+    <p class="eyebrow">
+      LITTLE MOMENTS
+    </p>
+
+
+    <h2>
+      My
+      <span>Gallery</span>
+    </h2>
+
+
+    <div class="photo-grid">
+
+      <img
+        src="images/gallery1.jpg"
+        alt=""
+      >
+
+      <img
+        src="images/gallery2.jpg"
+        alt=""
+      >
+
+      <img
+        src="images/gallery3.jpg"
+        alt=""
+      >
+
+      <img
+        src="images/gallery4.jpg"
+        alt=""
+      >
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= COUNTDOWN ================= -->
+
+  <section
+    class="page countdown-page"
+    id="countdown"
+  >
+
+    <!-- HOME -->
+    <a
+      href="#home"
+      class="home-btn"
+      aria-label="Home"
+    >
+      ⌂
+    </a>
+
+
+    <p class="eyebrow">
+      COUNTING DOWN THE DAYS
+    </p>
+
+
+    <h2>
+      See you in
+      <span>...</span>
+    </h2>
+
+
+    <div class="countdown">
+
+      <div>
+        <strong id="days">00</strong>
+        <small>DAYS</small>
+      </div>
+
+      <div>
+        <strong id="hours">00</strong>
+        <small>HOURS</small>
+      </div>
+
+      <div>
+        <strong id="minutes">00</strong>
+        <small>MINUTES</small>
+      </div>
+
+      <div>
+        <strong id="seconds">00</strong>
+        <small>SECONDS</small>
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= RSVP ================= -->
+
+  <section
+    class="page rsvp"
+    id="rsvp"
+  >
+
+    <!-- HOME -->
+    <a
+      href="#home"
+      class="home-btn"
+      aria-label="Home"
+    >
+      ⌂
+    </a>
+
+
+    <p class="eyebrow">
+      WE HOPE YOU CAN COME!
+    </p>
+
+
+    <h2>
+      RSVP
+      <span>Here!</span>
+    </h2>
+
+
+    <form id="rsvpForm">
+
+      <input
+        name="name"
+        placeholder="Your name"
+        required
+      >
+
+
+      <select
+        name="attendance"
+        required
+      >
+
+        <option value="">
+          Will you be joining us?
+        </option>
+
+        <option>
+          Yes! I'll be there 🎉
+        </option>
+
+        <option>
+          Sorry, I can't make it
+        </option>
+
+      </select>
+
+
+      <input
+        name="guests"
+        type="number"
+        min="1"
+        value="1"
+        placeholder="Number of guests"
+      >
+
+
+      <textarea
+        name="message"
+        rows="4"
+        placeholder="Leave a birthday message ♡"
+      ></textarea>
+
+
+      <button type="submit">
+        SEND RSVP ♡
+      </button>
+
+    </form>
+
+
+    <p id="success"></p>
+
+  </section>
+
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <a
+      href="#home"
+      class="footer-home"
+    >
+      ⌂ HOME
+    </a>
+
+    <div class="footer-flower">
+      ❀
+    </div>
+
+    <p class="eyebrow">
+      WITH LOVE
+    </p>
+
+    <h2>
+      [CHILD'S NAME]
+    </h2>
+
+    <p>
+      Can't wait to celebrate with you! ♡
+    </p>
+
+  </footer>
 
 </main>
 
-<audio id="music" loop>
-  <!-- Add music.mp3 beside index.html and uncomment the line below -->
-  <!-- <source src="music.mp3" type="audio/mpeg"> -->
+
+
+<!-- OPTIONAL MUSIC -->
+
+<audio
+  id="music"
+  loop
+>
+  <!--
+  Put music.mp3 beside index.html,
+  then uncomment this:
+
+  <source
+    src="music.mp3"
+    type="audio/mpeg"
+  >
+  -->
 </audio>
 
+
 <script src="script.js"></script>
+
 </body>
 </html>
