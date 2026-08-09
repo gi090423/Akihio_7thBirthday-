@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're Invited! 🎀</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="confetti" aria-hidden="true"></div>
+
+  <!-- Opening screen -->
+  <section class="cover" id="cover">
+    <div class="sparkles">✦ ˚ ✧ ｡ ✦ ˚</div>
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body"></div>
+        <div class="letter">
+          <span>You're<br>Invited!</span>
+        </div>
+        <div class="seal">♥</div>
+      </div>
+    </div>
+    <p class="tap-hint">Tap the invitation to open</p>
+    <button class="open-btn" id="openBtn">OPEN INVITATION ✨</button>
+  </section>
+
+  <main id="invitation" class="hidden">
+    <section class="hero">
+      <div class="floating balloon b1">🎈</div>
+      <div class="floating balloon b2">🎈</div>
+      <div class="floating balloon b3">🎈</div>
+      <div class="hero-card">
+        <p class="eyebrow">COME CELEBRATE WITH US</p>
+        <h1><span>[CHILD'S NAME]</span><br>IS TURNING <strong>7!</strong></h1>
+        <p class="hero-date">Saturday · September 12, 2026 · 3:00 PM</p>
+        <div class="cake">🎂</div>
+        <p class="scroll-note">Scroll down for the details ↓</p>
+      </div>
+    </section>
+
+    <section class="section intro">
+      <p class="eyebrow">A LITTLE PARTY IS ON THE WAY</p>
+      <h2>Seven looks good on you! ✨</h2>
+      <p>
+        We would love for you to join us as we celebrate
+        <strong>[CHILD'S NAME]</strong> turning seven!
+        Come ready for cake, games, laughter, and lots of happy memories.
+      </p>
+    </section>
+
+    <section class="section details">
+      <div class="section-title">
+        <p class="eyebrow">SAVE THE DATE</p>
+        <h2>The Party Details</h2>
+      </div>
+      <div class="detail-grid">
+        <article class="detail-card">
+          <div class="icon">📅</div>
+          <h3>When</h3>
+          <p>Saturday<br><strong>September 12, 2026</strong><br>3:00 PM</p>
+        </article>
+        <article class="detail-card">
+          <div class="icon">📍</div>
+          <h3>Where</h3>
+          <p><strong>[VENUE NAME]</strong><br>[ADDRESS]</p>
+          <a class="small-btn" href="https://maps.google.com" target="_blank" rel="noopener">GET DIRECTIONS ↗</a>
+        </article>
+        <article class="detail-card">
+          <div class="icon">👗</div>
+          <h3>Dress Code</h3>
+          <p>[DRESS CODE]<br><span>Come party-ready!</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section countdown-section">
+      <p class="eyebrow">COUNTING DOWN TO THE BIG DAY</p>
+      <h2>See you soon! 🎈</h2>
+      <div class="countdown" id="countdown">
+        <div><span id="days">00</span><small>days</small></div>
+        <div><span id="hours">00</span><small>hours</small></div>
+        <div><span id="minutes">00</span><small>minutes</small></div>
+        <div><span id="seconds">00</span><small>seconds</small></div>
+      </div>
+    </section>
+
+    <section class="section gallery">
+      <p class="eyebrow">A FEW FAVORITE MOMENTS</p>
+      <h2>Before the big day 📸</h2>
+      <div class="photo-grid">
+        <div class="photo placeholder">YOUR PHOTO</div>
+        <div class="photo placeholder">YOUR PHOTO</div>
+        <div class="photo placeholder">YOUR PHOTO</div>
+      </div>
+      <p class="tiny-note">Replace these placeholders with your own photos in <code>index.html</code>.</p>
+    </section>
+
+    <section class="section rsvp-section" id="rsvp">
+      <div class="rsvp-card">
+        <div class="sparkles">✦ ˚ ✧ ｡ ✦</div>
+        <p class="eyebrow">LET US KNOW</p>
+        <h2>Will you celebrate with us?</h2>
+        <p>Please RSVP below so we can save you a seat!</p>
+
+        <!-- Netlify Forms: works automatically after deployment to Netlify -->
+        <form name="birthday-rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="birthday-rsvp">
+          <p class="hidden">
+            <label>Don't fill this out: <input name="bot-field"></label>
+          </p>
+
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="e.g. Maria Santos" required>
+
+          <label for="attendance">Will you be there?</label>
+          <select id="attendance" name="attendance" required>
+            <option value="">Please choose...</option>
+            <option>Yes! I'll be there 🎉</option>
+            <option>Sorry, I can't make it 😢</option>
+          </select>
+
+          <label for="guests">Number of guests</label>
+          <input id="guests" name="guests" type="number" min="1" max="20" value="1" required>
+
+          <label for="message">Message <span>(optional)</span></label>
+          <textarea id="message" name="message" rows="3" placeholder="Leave a little birthday message! 💌"></textarea>
+
+          <button class="submit-btn" type="submit">SEND MY RSVP 💌</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div>🎈 🎂 🎀 🎉</div>
+      <p>Can't wait to celebrate with you!</p>
+      <small>Made with love for [CHILD'S NAME]'s 7th birthday</small>
+    </footer>
+  </main>
+
+  <button class="music-btn" id="musicBtn" aria-label="Play birthday music">♫</button>
+  <audio id="music" loop>
+    <!-- Add your own music file as music.mp3 in this folder, then uncomment:
+    <source src="music.mp3" type="audio/mpeg">
+    -->
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
