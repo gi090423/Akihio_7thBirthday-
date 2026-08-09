@@ -1,233 +1,81 @@
-*{box-sizing:border-box}
-:root{
- --pink:#f7d6e1;
- --light:#fff7f5;
- --rose:#b9617e;
- --deep:#78465a;
- --gold:#c89b48;
- --line:#e4adbf;
-}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--light);color:var(--deep);font-family:Montserrat,Arial,sans-serif}
-.hidden{display:none!important}
-button{font-family:inherit}
+/* =========================================
+   HOME BUTTON
+========================================= */
 
-.cover{
- min-height:100svh;
- position:relative;
- overflow:hidden;
- display:flex;
- justify-content:center;
- align-items:center;
- background:
-   radial-gradient(circle at 20% 10%,#fff9fa 0 10%,transparent 27%),
-   radial-gradient(circle at 85% 85%,#fff 0 5%,transparent 28%),
-   #f6cfdb;
-}
-.cover:before{
- content:"";position:absolute;inset:14px;border:1px solid rgba(185,97,126,.25)
-}
-.cover:after{
- content:"";position:absolute;inset:25px;border:1px dashed rgba(185,97,126,.16)
-}
-.cover-content{
- width:min(94vw,560px);height:94svh;min-height:650px;
- position:relative;z-index:2;text-align:center;
- padding-top:32px;
- background:rgba(255,250,248,.55);
- box-shadow:0 20px 55px rgba(100,50,70,.12);
- overflow:hidden
-}
-.cover-copy{position:relative;z-index:5}
-.cover-copy p,.eyebrow{
- font-size:9px;letter-spacing:3px;font-weight:700;color:var(--rose)
-}
-.cover-copy h1{margin:5px 0 0}
-.cover-copy h1 span,.hero h1 span{
- font:normal clamp(48px,13vw,78px) "Great Vibes",cursive;
- color:var(--rose)
-}
-.cover-copy h2{
- margin:0;font:italic 28px "Cormorant Garamond",serif;color:var(--gold)
-}
-.little-photo{
- position:absolute;left:7%;top:5%;width:130px;height:145px;
- padding:5px;background:white;transform:rotate(-8deg);
- box-shadow:0 10px 25px rgba(100,50,70,.18);z-index:3
-}
-.little-photo img{width:100%;height:100%;object-fit:cover}
+.home-btn {
+  position: absolute !important;
 
-.envelope-wrap{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);z-index:10}
-.envelope{
- width:min(78vw,370px);aspect-ratio:1.45;border:0;background:transparent;
- position:relative;cursor:pointer;filter:drop-shadow(0 15px 17px rgba(100,45,65,.25))
-}
-.envelope-body{
- position:absolute;inset:0;background:#d987a2;border-radius:4px
-}
-.envelope-body:after{
- content:"";position:absolute;inset:0;
- background:linear-gradient(145deg,transparent 49%,#c87591 50%,transparent 51%),
-            linear-gradient(35deg,transparent 49%,#c87591 50%,transparent 51%)
-}
-.flap{
- position:absolute;left:0;top:0;width:100%;height:65%;
- background:#e8a6ba;clip-path:polygon(0 0,100% 0,50% 100%);
- transform-origin:top center;transition:transform .9s ease;z-index:4
-}
-.letter{
- position:absolute;z-index:3;background:#fff9f5;
- left:9%;top:7%;width:82%;height:76%;
- display:flex;flex-direction:column;justify-content:center;
- font:40px/0.9 "Great Vibes",cursive;color:var(--rose);
- box-shadow:0 5px 15px rgba(100,45,65,.12);
- transition:transform .9s ease
-}
-.seal{
- position:absolute;z-index:8;left:50%;top:52%;transform:translate(-50%,-50%);
- width:60px;height:60px;border-radius:50%;display:grid;place-items:center;
- background:#a94f68;color:#fff;font-size:22px;transition:.3s
-}
-.envelope.open .flap{transform:rotateX(180deg)}
-.envelope.open .letter{transform:translateY(-85px)}
-.envelope.open .seal{opacity:0}
-.open-text{font:26px "Great Vibes",cursive;color:#96546c;margin-top:-5px}
+  top: 18px;
+  right: 18px;
 
-.flower,.butterfly{position:absolute;z-index:3}
-.flower{font-size:75px;color:#d88fa6;opacity:.6}
-.flower-a{right:-10px;top:15%}.flower-b{left:-20px;bottom:12%}
-.butterfly{font-size:34px;animation:float 4s ease-in-out infinite}
-.butterfly-a{right:8%;top:32%}.butterfly-b{left:8%;bottom:29%}
-@keyframes float{50%{transform:translateY(-12px) rotate(5deg)}}
+  z-index: 9999;
 
-.music-btn{
- position:fixed;right:15px;top:15px;z-index:100;
- width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
- background:#fff;color:var(--rose);display:grid;place-items:center;cursor:pointer;
- box-shadow:0 5px 15px #75465a20
-}
+  width: 44px;
+  height: 44px;
 
-.page{padding:80px 20px;min-height:100svh;text-align:center;position:relative;overflow:hidden}
-.hero{
- background:linear-gradient(#f8dce6 0%,#fff8f6 80%)
-}
-.plaid{
- position:absolute;inset:0;opacity:.14;
- background:
-  repeating-linear-gradient(0deg,transparent 0 30px,#c56d89 31px 33px),
-  repeating-linear-gradient(90deg,transparent 0 30px,#c56d89 31px 33px);
- pointer-events:none
-}
-.hero>*:not(.plaid){position:relative;z-index:2}
-.hero h1{margin:0}
-.hero h2{
- margin:0 0 20px;font:italic 30px "Cormorant Garamond",serif;color:var(--gold)
-}
-.portrait-frame{
- width:min(76vw,330px);height:390px;padding:8px;background:#fff;
- margin:0 auto 30px;box-shadow:0 18px 35px #74435722;transform:rotate(2deg)
-}
-.portrait-frame img{width:100%;height:100%;object-fit:cover}
-.story{
- max-width:530px;margin:30px auto;
- font:italic 20px/1.45 "Cormorant Garamond",serif
-}
-.menu{
- width:min(90vw,380px);margin:auto;display:grid;gap:11px
-}
-.menu a{
- background:#fff9f6;border:2px solid #dda1b5;border-radius:28px;
- padding:12px;color:var(--rose);font-size:10px;font-weight:700;letter-spacing:1px;
- box-shadow:0 5px 13px #74435712
-}
-.menu a:hover{transform:translateY(-2px)}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.section-title h2,.gifts h2,.gallery-page h2,.countdown-page h2,.rsvp h2{
- font:600 48px "Cormorant Garamond",serif;margin:5px 0 30px
-}
-.section-title h2 span,.gifts h2 span,.gallery-page h2 span,.countdown-page h2 span,.rsvp h2 span{
- font:normal 48px "Great Vibes",cursive;color:var(--gold)
-}
-.details{background:#fff1f5}
-.details:before,.gifts:before,.gallery-page:before,.rsvp:before{
- content:"❀  ✿  ❀";position:absolute;top:18px;left:0;right:0;
- color:#dfa0b3;letter-spacing:18px
-}
-.detail-card{
- width:min(92vw,540px);margin:12px auto;padding:25px 18px;
- background:#fff;border:1px solid #edd0d9;box-shadow:0 10px 25px #7443570d
-}
-.detail-icon{font-size:27px;color:var(--gold)}
-.label{font-size:9px;letter-spacing:2px;color:var(--rose);font-weight:700}
-.detail-card h3{font:600 24px "Cormorant Garamond",serif;margin:8px 0}
-.detail-card p{font-size:11px}
-.detail-card a{font-size:9px;font-weight:700;color:var(--rose)}
+  border-radius: 50%;
 
-.gifts{background:#fffaf6}
-.gift-letter{
- width:min(92vw,560px);margin:auto;background:#fff;padding:32px;
- border:1px solid #edd0d9;box-shadow:0 15px 30px #74435710;
- text-align:left;font:20px/1.4 "Cormorant Garamond",serif
-}
-.gift-letter li{margin:8px 0}
+  background: #ffffff;
 
-.gallery-page{background:#fff1f5}
-.photo-grid{
- width:min(92vw,700px);margin:auto;
- display:grid;grid-template-columns:1fr 1fr;gap:10px
-}
-.photo-grid img{width:100%;height:260px;object-fit:cover;background:#f1cad7}
+  border: 1px solid #dca9b9;
 
-.countdown-page{background:linear-gradient(#fffaf7,#f8dce6)}
-.countdown{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
-.countdown div{width:75px;background:#fff;padding:14px 5px;border:1px solid #ecd0d9}
-.countdown strong{display:block;font:600 32px "Cormorant Garamond",serif;color:var(--rose)}
-.countdown small{font-size:8px;letter-spacing:1px}
+  color: #b9617e;
 
-.rsvp{background:#fff1f5}
-form{width:min(92vw,500px);margin:auto;display:grid;gap:12px}
-form input,form select,form textarea{
- width:100%;padding:13px 15px;border:1px solid #dfb2c1;
- border-radius:10px;background:#fffaf9;color:var(--deep);outline:none
-}
-form button{
- border:0;border-radius:28px;padding:14px;background:var(--rose);
- color:#fff;font-weight:700;font-size:10px;letter-spacing:1px;cursor:pointer
-}
-#success{color:var(--rose);font-size:13px}
+  text-decoration: none;
 
-footer{padding:80px 20px;text-align:center;background:#f7d6e1}
-footer h2{font:normal 60px "Great Vibes",cursive;color:var(--rose);margin:5px}
-.footer-flower{font-size:40px;color:#d18ba2}
+  font-family: Arial, sans-serif;
 
-@media(max-width:600px){
- .little-photo{width:105px;height:120px}
- .cover-content{min-height:680px}
- .envelope-wrap{bottom:9%}
- .photo-grid img{height:210px}
+  font-size: 22px;
+
+  line-height: 1;
+
+  box-shadow:
+    0 5px 15px rgba(116, 67, 87, 0.16);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 
-/* HOME BUTTON — appears in every invitation section */
-.home-btn{
-  position:absolute;
-  top:22px;
-  right:20px;
-  z-index:20;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  text-decoration:none;
-  background:rgba(255,255,255,.92);
-  color:var(--rose);
-  border:1px solid #e1b0bf;
-  box-shadow:0 5px 15px rgba(116,67,87,.13);
-  font-size:18px;
-  transition:transform .2s ease, background .2s ease;
+.home-btn:hover {
+
+  transform: translateY(-2px);
+
+  background: #fff8f6;
+
 }
-.home-btn:hover{
-  transform:translateY(-2px);
-  background:#fff;
+
+
+.footer-home {
+
+  display: inline-block;
+
+  padding: 9px 18px;
+
+  border:
+    1px solid #dca9b9;
+
+  border-radius: 20px;
+
+  color: #b9617e;
+
+  background: #fff8f6;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  text-decoration: none;
+
+  margin-bottom: 18px;
+
 }
