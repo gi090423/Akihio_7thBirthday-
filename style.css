@@ -1,76 +1,35 @@
-/* =====================================================
-   RESET
-===================================================== */
-
 * {
     box-sizing: border-box;
 }
 
 
 html {
-    margin: 0;
-    padding: 0;
-
     scroll-behavior: smooth;
-
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 
 
 body {
     margin: 0;
-    padding: 0;
-
-    min-height: 100vh;
-
-    overflow-x: hidden;
-    overflow-y: auto;
 
     background: #fff7f5;
 
     color: #78465a;
 
-    font-family:
-        "Montserrat",
-        Arial,
-        sans-serif;
-}
-
-
-a {
-    text-decoration: none;
-}
-
-
-button,
-input,
-select,
-textarea {
-    font-family: inherit;
+    font-family: Arial, sans-serif;
 }
 
 
 .hidden {
-    display: none !important;
+    display: none;
 }
 
 
 
-/* =====================================================
-   COVER
-===================================================== */
+/* ================= COVER ================= */
 
 .cover {
 
     min-height: 100vh;
-    min-height: 100svh;
-
-    width: 100%;
-
-    position: relative;
-
-    overflow: hidden;
 
     display: flex;
 
@@ -78,788 +37,152 @@ textarea {
 
     align-items: center;
 
+    text-align: center;
+
+    padding: 30px;
+
     background:
-
-        radial-gradient(
-            circle at 20% 10%,
-            #fff9fa 0 10%,
-            transparent 27%
-        ),
-
-        radial-gradient(
-            circle at 85% 85%,
-            #ffffff 0 5%,
-            transparent 28%
-        ),
-
-        #f6cfdb;
-}
-
-
-.cover::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 14px;
-
-    border:
-        1px solid
-        rgba(185, 97, 126, .25);
-
-}
-
-
-.cover::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 25px;
-
-    border:
-        1px dashed
-        rgba(185, 97, 126, .16);
-
+        linear-gradient(
+            135deg,
+            #f8d6e1,
+            #fff7f5
+        );
 }
 
 
 .cover-content {
 
-    width: min(94vw, 560px);
-
-    min-height: 94vh;
-    min-height: 94svh;
-
-    position: relative;
-
-    z-index: 2;
-
-    text-align: center;
-
-    padding-top: 32px;
-
-    background:
-        rgba(255, 250, 248, .55);
-
-    box-shadow:
-        0 20px 55px
-        rgba(100, 50, 70, .12);
-
-    overflow: hidden;
-}
-
-
-.cover-copy {
-
-    position: relative;
-
-    z-index: 5;
-}
-
-
-.cover-copy p {
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    font-weight: 700;
-
-    color: #b9617e;
-}
-
-
-.cover-copy h1 {
-
-    margin: 5px 0 0;
-}
-
-
-.cover-copy h1 span {
-
-    font:
-        normal
-        clamp(48px, 13vw, 78px)
-        "Great Vibes",
-        cursive;
-
-    color: #b9617e;
-}
-
-
-.cover-copy h2 {
-
-    margin: 0;
-
-    font:
-        italic
-        28px
-        "Cormorant Garamond",
-        serif;
-
-    color: #c89b48;
-}
-
-
-
-/* =====================================================
-   COVER PHOTO
-===================================================== */
-
-.little-photo {
-
-    position: absolute;
-
-    left: 7%;
-
-    top: 5%;
-
-    width: 130px;
-
-    height: 145px;
-
-    padding: 5px;
-
-    background: white;
-
-    transform: rotate(-8deg);
-
-    box-shadow:
-        0 10px 25px
-        rgba(100, 50, 70, .18);
-
-    z-index: 3;
-}
-
-
-.little-photo img {
-
     width: 100%;
 
-    height: 100%;
+    max-width: 500px;
 
-    object-fit: cover;
+    padding: 40px 20px;
 }
 
 
-
-/* =====================================================
-   ENVELOPE
-===================================================== */
-
-.envelope-wrap {
-
-    position: absolute;
-
-    bottom: 10%;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    z-index: 10;
-}
-
-
-.envelope {
-
-    width: min(78vw, 370px);
-
-    aspect-ratio: 1.45;
-
-    border: 0;
-
-    background: transparent;
-
-    position: relative;
-
-    cursor: pointer;
-
-    filter:
-        drop-shadow(
-            0 15px 17px
-            rgba(100, 45, 65, .25)
-        );
-}
-
-
-.envelope-body {
-
-    position: absolute;
-
-    inset: 0;
-
-    background: #d987a2;
-
-    border-radius: 4px;
-}
-
-
-.envelope-body::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            transparent 49%,
-            #c87591 50%,
-            transparent 51%
-        ),
-
-        linear-gradient(
-            35deg,
-            transparent 49%,
-            #c87591 50%,
-            transparent 51%
-        );
-}
-
-
-.flap {
-
-    position: absolute;
-
-    left: 0;
-
-    top: 0;
-
-    width: 100%;
-
-    height: 65%;
-
-    background: #e8a6ba;
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            50% 100%
-        );
-
-    transform-origin: top center;
-
-    transition:
-        transform .9s ease;
-
-    z-index: 4;
-}
-
-
-.letter {
-
-    position: absolute;
-
-    z-index: 3;
-
-    background: #fff9f5;
-
-    left: 9%;
-
-    top: 7%;
-
-    width: 82%;
-
-    height: 76%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    font:
-        40px/0.9
-        "Great Vibes",
-        cursive;
-
-    color: #b9617e;
-
-    box-shadow:
-        0 5px 15px
-        rgba(100, 45, 65, .12);
-
-    transition:
-        transform .9s ease;
-}
-
-
-.seal {
-
-    position: absolute;
-
-    z-index: 8;
-
-    left: 50%;
-
-    top: 52%;
-
-    transform:
-        translate(-50%, -50%);
-
-    width: 60px;
-
-    height: 60px;
-
-    border-radius: 50%;
-
-    display: grid;
-
-    place-items: center;
-
-    background: #a94f68;
-
-    color: white;
-
-    font-size: 22px;
-
-    transition: .3s;
-}
-
-
-.envelope.open .flap {
-
-    transform:
-        rotateX(180deg);
-}
-
-
-.envelope.open .letter {
-
-    transform:
-        translateY(-85px);
-}
-
-
-.envelope.open .seal {
-
-    opacity: 0;
-}
-
-
-.open-text {
-
-    font:
-        26px
-        "Great Vibes",
-        cursive;
-
-    color: #96546c;
-
-    margin-top: -5px;
-}
-
-
-
-/* =====================================================
-   DECORATIONS
-===================================================== */
-
-.flower,
-.butterfly {
-
-    position: absolute;
-
-    z-index: 3;
-}
-
-
-.flower {
-
-    font-size: 75px;
-
-    color: #d88fa6;
-
-    opacity: .6;
-}
-
-
-.flower-a {
-
-    right: -10px;
-
-    top: 15%;
-}
-
-
-.flower-b {
-
-    left: -20px;
-
-    bottom: 12%;
-}
-
-
-.butterfly {
-
-    font-size: 34px;
-
-    animation:
-        float 4s
-        ease-in-out
-        infinite;
-}
-
-
-.butterfly-a {
-
-    right: 8%;
-
-    top: 32%;
-}
-
-
-.butterfly-b {
-
-    left: 8%;
-
-    bottom: 29%;
-}
-
-
-@keyframes float {
-
-    50% {
-
-        transform:
-            translateY(-12px)
-            rotate(5deg);
-
-    }
-
-}
-
-
-
-/* =====================================================
-   PAGES
-===================================================== */
-
-.page {
-
-    width: 100%;
-
-    min-height: 100vh;
-    min-height: 100svh;
-
-    padding:
-        80px 20px;
-
-    text-align: center;
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-
-.hero {
-
-    background:
-        linear-gradient(
-            #f8dce6 0%,
-            #fff8f6 80%
-        );
-}
-
-
-.plaid {
-
-    position: absolute;
-
-    inset: 0;
-
-    opacity: .14;
-
-    background:
-
-        repeating-linear-gradient(
-            0deg,
-            transparent 0 30px,
-            #c56d89 31px 33px
-        ),
-
-        repeating-linear-gradient(
-            90deg,
-            transparent 0 30px,
-            #c56d89 31px 33px
-        );
-
-    pointer-events: none;
-}
-
-
-
-/* =====================================================
-   HOME BUTTON
-===================================================== */
-
-.home-btn {
-
-    position: absolute;
-
-    top: 20px;
-
-    right: 20px;
-
-    z-index: 99999;
-
-    width: 45px;
-
-    height: 45px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #ffffff;
-
-    border:
-        1px solid
-        #dca9b9;
-
-    color: #b9617e;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 22px;
-
-    line-height: 1;
-
-    box-shadow:
-        0 5px 15px
-        rgba(116, 67, 87, .16);
-
-    cursor: pointer;
-
-    transition:
-        transform .2s ease;
-}
-
-
-.home-btn:hover {
-
-    transform:
-        translateY(-2px);
-
-}
-
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero > *:not(.plaid) {
-
-    position: relative;
-
-    z-index: 2;
-}
-
-
-.eyebrow {
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    font-weight: 700;
-
-    color: #b9617e;
-}
-
-
-.hero h1 {
-
-    margin: 0;
-}
-
-
-.hero h1 span {
-
-    font:
-        normal
-        clamp(48px, 13vw, 78px)
-        "Great Vibes",
-        cursive;
-
-    color: #b9617e;
-}
-
-
-.hero h2 {
-
-    margin:
-        0 0 20px;
-
-    font:
-        italic
-        30px
-        "Cormorant Garamond",
-        serif;
-
-    color: #c89b48;
-}
-
-
-
-/* =====================================================
-   MAIN PHOTO
-===================================================== */
-
-.portrait-frame {
-
-    width:
-        min(76vw, 330px);
-
-    height: 390px;
-
-    padding: 8px;
-
-    background: #fff;
-
-    margin:
-        0 auto 30px;
-
-    box-shadow:
-        0 18px 35px
-        rgba(116, 67, 87, .13);
-
-    transform:
-        rotate(2deg);
-}
-
-
-.portrait-frame img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-}
-
-
-
-/* =====================================================
-   STORY
-===================================================== */
-
-.story {
-
-    max-width: 530px;
-
-    margin:
-        30px auto;
-
-    font:
-        italic
-        20px/1.45
-        "Cormorant Garamond",
-        serif;
-}
-
-
-
-/* =====================================================
-   MENU
-===================================================== */
-
-.menu {
-
-    width:
-        min(90vw, 380px);
-
-    margin:
-        auto;
-
-    display: grid;
-
-    gap: 11px;
-}
-
-
-.menu a {
-
-    background: #fff9f6;
-
-    border:
-        2px solid
-        #dda1b5;
-
-    border-radius: 28px;
-
-    padding: 12px;
-
-    color: #b9617e;
+.small-text {
 
     font-size: 10px;
 
-    font-weight: 700;
+    letter-spacing: 3px;
 
-    letter-spacing: 1px;
+    font-weight: bold;
 
-    box-shadow:
-        0 5px 13px
-        rgba(116, 67, 87, .07);
+    color: #b9617e;
 }
 
 
+h1 {
 
-/* =====================================================
-   SECTION TITLES
-===================================================== */
+    margin: 10px 0;
 
-.details h2,
-.gifts h2,
-.gallery-page h2,
-.countdown-page h2,
-.rsvp h2 {
-
-    font:
-        600
-        48px
-        "Cormorant Garamond",
+    font-family:
+        Georgia,
         serif;
 
-    margin:
-        5px 0 30px;
+    font-size: 50px;
+
+    color: #b9617e;
 }
 
 
-.details h2 span,
-.gifts h2 span,
-.gallery-page h2 span,
-.countdown-page h2 span,
-.rsvp h2 span {
+h2 {
 
-    font:
-        normal
-        48px
-        "Great Vibes",
-        cursive;
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 32px;
 
     color: #c89b48;
 }
 
 
+.cover-photo {
 
-/* =====================================================
-   DETAILS
-===================================================== */
+    width: 220px;
+
+    height: 280px;
+
+    object-fit: cover;
+
+    padding: 7px;
+
+    background: white;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.15);
+
+    margin: 20px auto;
+
+    display: block;
+}
+
+
+.open-button {
+
+    width: 180px;
+
+    height: 60px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #b9617e;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 25px auto;
+}
+
+
+.open-button span {
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+/* ================= PAGES ================= */
+
+.page {
+
+    min-height: 100vh;
+
+    padding: 80px 20px;
+
+    text-align: center;
+
+    position: relative;
+}
+
+
+.home {
+
+    background:
+        linear-gradient(
+            #f8dce6,
+            #fff8f6
+        );
+}
+
 
 .details {
 
@@ -867,152 +190,244 @@ textarea {
 }
 
 
-.detail-card {
-
-    width:
-        min(92vw, 540px);
-
-    margin:
-        12px auto;
-
-    padding:
-        25px 18px;
-
-    background: #fff;
-
-    border:
-        1px solid
-        #edd0d9;
-
-    box-shadow:
-        0 10px 25px
-        rgba(116, 67, 87, .05);
-}
-
-
-.detail-icon {
-
-    font-size: 27px;
-
-    color: #c89b48;
-}
-
-
-.label {
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-    color: #b9617e;
-
-    font-weight: 700;
-}
-
-
-.detail-card h3 {
-
-    font:
-        600
-        24px
-        "Cormorant Garamond",
-        serif;
-
-    margin:
-        8px 0;
-}
-
-
-.detail-card p {
-
-    font-size: 11px;
-}
-
-
-.detail-card a {
-
-    font-size: 9px;
-
-    font-weight: 700;
-
-    color: #b9617e;
-}
-
-
-
-/* =====================================================
-   GIFTS
-===================================================== */
-
 .gifts {
 
     background: #fffaf6;
 }
 
 
-.gift-letter {
-
-    width:
-        min(92vw, 560px);
-
-    margin: auto;
-
-    background: #fff;
-
-    padding: 32px;
-
-    border:
-        1px solid
-        #edd0d9;
-
-    box-shadow:
-        0 15px 30px
-        rgba(116, 67, 87, .06);
-
-    text-align: left;
-
-    font:
-        20px/1.4
-        "Cormorant Garamond",
-        serif;
-}
-
-
-.gift-letter li {
-
-    margin:
-        8px 0;
-}
-
-
-
-/* =====================================================
-   GALLERY
-===================================================== */
-
-.gallery-page {
+.gallery {
 
     background: #fff1f5;
 }
 
 
-.photo-grid {
+.countdown-page {
 
-    width:
-        min(92vw, 700px);
+    background:
+        linear-gradient(
+            #fffaf7,
+            #f8dce6
+        );
+}
+
+
+.rsvp {
+
+    background: #fff1f5;
+}
+
+
+
+/* ================= HOME BUTTON ================= */
+
+.home-button {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid #dca9b9;
+
+    background: white;
+
+    color: #b9617e;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    z-index: 1000;
+}
+
+
+.home-button:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+
+/* ================= MAIN PHOTO ================= */
+
+.main-photo {
+
+    width: 280px;
+
+    height: 360px;
+
+    object-fit: cover;
+
+    padding: 7px;
+
+    background: white;
+
+    box-shadow:
+        0 15px 30px
+        rgba(0,0,0,.12);
+
+    margin: 20px auto;
+
+    display: block;
+}
+
+
+.description {
+
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+}
+
+
+
+/* ================= NAV ================= */
+
+nav {
+
+    width: 100%;
+
+    max-width: 380px;
+
+    margin: 30px auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+nav a {
+
+    padding: 14px;
+
+    border-radius: 30px;
+
+    border:
+        2px solid #dda1b5;
+
+    color: #b9617e;
+
+    background: white;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+
+/* ================= CARDS ================= */
+
+.card {
+
+    width: 100%;
+
+    max-width: 540px;
+
+    margin: 15px auto;
+
+    padding: 25px 20px;
+
+    background: white;
+
+    border:
+        1px solid #edd0d9;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.05);
+}
+
+
+.card span {
+
+    font-size: 28px;
+
+    color: #c89b48;
+}
+
+
+.card p {
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #b9617e;
+}
+
+
+.card h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: 22px;
+
+}
+
+
+
+/* ================= GIFTS ================= */
+
+.text-card {
+
+    text-align: left;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+}
+
+
+.text-card li {
+
+    margin: 10px 0;
+}
+
+
+
+/* ================= GALLERY ================= */
+
+.gallery-grid {
+
+    width: 100%;
+
+    max-width: 700px;
 
     margin: auto;
 
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     gap: 10px;
 }
 
 
-.photo-grid img {
+.gallery-grid img {
 
     width: 100%;
 
@@ -1025,19 +440,7 @@ textarea {
 
 
 
-/* =====================================================
-   COUNTDOWN
-===================================================== */
-
-.countdown-page {
-
-    background:
-        linear-gradient(
-            #fffaf7,
-            #f8dce6
-        );
-}
-
+/* ================= COUNTDOWN ================= */
 
 .countdown {
 
@@ -1045,23 +448,24 @@ textarea {
 
     justify-content: center;
 
-    gap: 9px;
-
     flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 50px;
 }
 
 
 .countdown div {
 
-    width: 75px;
+    width: 80px;
 
-    background: #fff;
+    padding: 15px 5px;
 
-    padding: 14px 5px;
+    background: white;
 
     border:
-        1px solid
-        #ecd0d9;
+        1px solid #ecd0d9;
 }
 
 
@@ -1069,17 +473,15 @@ textarea {
 
     display: block;
 
-    font:
-        600
-        32px
-        "Cormorant Garamond",
-        serif;
+    font-family: Georgia, serif;
+
+    font-size: 32px;
 
     color: #b9617e;
 }
 
 
-.countdown small {
+.countdown span {
 
     font-size: 8px;
 
@@ -1088,24 +490,19 @@ textarea {
 
 
 
-/* =====================================================
-   RSVP
-===================================================== */
-
-.rsvp {
-
-    background: #fff1f5;
-}
-
+/* ================= RSVP ================= */
 
 form {
 
-    width:
-        min(92vw, 500px);
+    width: 100%;
+
+    max-width: 500px;
 
     margin: auto;
 
-    display: grid;
+    display: flex;
+
+    flex-direction: column;
 
     gap: 12px;
 }
@@ -1117,40 +514,34 @@ form textarea {
 
     width: 100%;
 
-    padding:
-        13px 15px;
+    padding: 14px;
 
     border:
-        1px solid
-        #dfb2c1;
+        1px solid #dfb2c1;
 
     border-radius: 10px;
 
-    background: #fffaf9;
+    background: white;
 
     color: #78465a;
 
-    outline: none;
+    font-size: 14px;
 }
 
 
 form button {
 
-    border: 0;
+    padding: 15px;
 
-    border-radius: 28px;
+    border: none;
 
-    padding: 14px;
+    border-radius: 30px;
 
     background: #b9617e;
 
-    color: #fff;
+    color: white;
 
-    font-weight: 700;
-
-    font-size: 10px;
-
-    letter-spacing: 1px;
+    font-weight: bold;
 
     cursor: pointer;
 }
@@ -1158,101 +549,65 @@ form button {
 
 #success {
 
-    color: #b9617e;
+    margin-top: 20px;
 
-    font-size: 13px;
+    color: #b9617e;
 }
 
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* ================= FOOTER ================= */
 
 footer {
 
-    padding:
-        80px 20px;
+    min-height: 40vh;
+
+    padding: 80px 20px;
 
     text-align: center;
 
     background: #f7d6e1;
+
+    position: relative;
 }
 
 
-.footer-home {
+.footer-button {
 
-    display: inline-block;
+    position: relative;
 
-    padding:
-        9px 18px;
+    top: auto;
 
-    border:
-        1px solid
-        #dca9b9;
+    right: auto;
 
-    border-radius: 20px;
-
-    color: #b9617e;
-
-    background: #fff8f6;
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-}
-
-
-.footer-flower {
-
-    font-size: 40px;
-
-    color: #d18ba2;
-}
-
-
-footer h2 {
-
-    font:
-        normal
-        60px
-        "Great Vibes",
-        cursive;
-
-    color: #b9617e;
-
-    margin: 5px;
+    margin-bottom: 30px;
 }
 
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
 
-    .little-photo {
+    h1 {
 
-        width: 105px;
-
-        height: 120px;
+        font-size: 42px;
 
     }
 
 
-    .cover-content {
+    .main-photo {
 
-        min-height: 680px;
+        width: 240px;
+
+        height: 320px;
 
     }
 
 
-    .photo-grid img {
+    .gallery-grid img {
 
-        height: 210px;
+        height: 200px;
 
     }
 
