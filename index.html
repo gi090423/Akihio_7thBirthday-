@@ -1,184 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>7th Birthday Invitation</title>
+    <title>7th Birthday</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="./style.css">
 </head>
-
 
 <body>
 
+<!-- ================= COVER ================= -->
 
-<!-- =====================================================
-     COVER
-===================================================== -->
-
-<section class="cover" id="cover">
-
-    <div class="flower flower-a">✿</div>
-    <div class="flower flower-b">❀</div>
-
-    <div class="butterfly butterfly-a">🦋</div>
-    <div class="butterfly butterfly-b">🦋</div>
-
+<section id="cover" class="cover">
 
     <div class="cover-content">
 
+        <p class="small-text">
+            PLEASE JOIN US TO CELEBRATE
+        </p>
 
-        <!-- COVER PHOTO -->
+        <h1>[CHILD'S NAME]</h1>
 
-        <div class="little-photo">
+        <h2>7th Birthday</h2>
 
-            <img
-                src="images/cover.jpg"
-                alt="Birthday girl"
-            >
+        <img
+            src="./images/cover.jpg"
+            class="cover-photo"
+            alt="Birthday"
+        >
 
-        </div>
-
-
-        <!-- COVER TEXT -->
-
-        <div class="cover-copy">
-
-            <p>
-                PLEASE JOIN US TO CELEBRATE
-            </p>
-
-            <h1>
-                <span>[CHILD'S NAME]</span>
-            </h1>
-
-            <h2>
-                7th Birthday
-            </h2>
-
-        </div>
-
-
-        <!-- ENVELOPE -->
-
-        <div class="envelope-wrap">
-
-            <button
-                class="envelope"
-                id="openInvitation"
-                type="button"
-            >
-
-                <div class="envelope-body"></div>
-
-                <div class="letter">
-
-                    <div>You're</div>
-                    <div>invited!</div>
-
-                </div>
-
-                <div class="flap"></div>
-
-                <div class="seal">
-                    ✿
-                </div>
-
-            </button>
-
-
-            <div class="open-text">
-                Click to open!
-            </div>
-
-        </div>
+        <button
+            id="openInvitation"
+            class="open-button"
+            type="button"
+        >
+            💌
+            <span>Tap to Open</span>
+        </button>
 
     </div>
 
 </section>
 
 
+<!-- ================= WEBSITE ================= -->
 
-<!-- =====================================================
-     INVITATION
-===================================================== -->
-
-<main id="invitation" class="hidden">
+<div id="invitation" class="hidden">
 
 
-    <!-- =================================================
-         HOME
-    ================================================= -->
+    <!-- HOME -->
 
-    <section
-        class="page hero"
-        id="home"
-    >
+    <section id="home" class="page home">
 
-        <!-- HOME BUTTON -->
-
-        <a
-            href="#"
-            class="home-btn"
-            onclick="goHome(event)"
+        <button
+            class="home-button"
+            type="button"
         >
             ⌂
-        </a>
+        </button>
 
 
-        <p class="eyebrow">
-            PLEASE JOIN US TO CELEBRATE
+        <p class="small-text">
+            YOU'RE INVITED
         </p>
 
+        <h1>[CHILD'S NAME]</h1>
 
-        <h1>
-            <span>[CHILD'S NAME]</span>
-        </h1>
-
-
-        <h2>
-            7th Birthday
-        </h2>
+        <h2>is turning 7!</h2>
 
 
-        <div class="portrait-frame">
-
-            <img
-                src="images/main.jpg"
-                alt="Birthday girl"
-            >
-
-        </div>
+        <img
+            src="./images/main.jpg"
+            class="main-photo"
+            alt="Birthday girl"
+        >
 
 
-        <p class="story">
+        <p class="description">
 
-            Once upon a time, a tiny little girl
-            arrived and completed our family.
-
-            Today, she is growing into a beautiful
-            little person, and we would love for you
-            to be part of her special day.
+            Come celebrate this very special
+            day with us!
 
         </p>
 
 
-        <div class="menu">
+        <nav>
 
             <a href="#details">
                 EVENT DETAILS
@@ -189,7 +97,7 @@
             </a>
 
             <a href="#gallery">
-                MY GALLERY
+                GALLERY
             </a>
 
             <a href="#countdown">
@@ -197,52 +105,39 @@
             </a>
 
             <a href="#rsvp">
-                RSVP HERE!
+                RSVP
             </a>
 
-        </div>
+        </nav>
 
     </section>
 
 
 
-    <!-- =================================================
-         EVENT DETAILS
-    ================================================= -->
+    <!-- DETAILS -->
 
-    <section
-        class="page details"
-        id="details"
-    >
+    <section id="details" class="page details">
 
-        <a
-            href="#"
-            class="home-btn"
-            onclick="goHome(event)"
+        <button
+            class="home-button"
+            type="button"
         >
             ⌂
-        </a>
+        </button>
 
 
-        <p class="eyebrow">
+        <p class="small-text">
             MARK YOUR CALENDAR
         </p>
 
-
-        <h2>
-            Event <span>Details</span>
-        </h2>
+        <h2>Event Details</h2>
 
 
-        <div class="detail-card">
+        <div class="card">
 
-            <div class="detail-icon">
-                ♡
-            </div>
+            <span>♡</span>
 
-            <p class="label">
-                DATE
-            </p>
+            <p>DATE</p>
 
             <h3>
                 Saturday, September 12, 2026
@@ -251,15 +146,11 @@
         </div>
 
 
-        <div class="detail-card">
+        <div class="card">
 
-            <div class="detail-icon">
-                ◷
-            </div>
+            <span>◷</span>
 
-            <p class="label">
-                TIME
-            </p>
+            <p>TIME</p>
 
             <h3>
                 3:00 PM onwards
@@ -268,15 +159,11 @@
         </div>
 
 
-        <div class="detail-card">
+        <div class="card">
 
-            <div class="detail-icon">
-                ⌖
-            </div>
+            <span>⌖</span>
 
-            <p class="label">
-                VENUE
-            </p>
+            <p>VENUE</p>
 
             <h3>
                 [VENUE NAME]
@@ -286,26 +173,14 @@
                 [VENUE ADDRESS]
             </p>
 
-            <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener"
-            >
-                VIEW MAP ↗
-            </a>
-
         </div>
 
 
-        <div class="detail-card">
+        <div class="card">
 
-            <div class="detail-icon">
-                ✿
-            </div>
+            <span>✿</span>
 
-            <p class="label">
-                DRESS CODE
-            </p>
+            <p>DRESS CODE</p>
 
             <h3>
                 [DRESS CODE]
@@ -317,62 +192,47 @@
 
 
 
-    <!-- =================================================
-         GIFTS
-    ================================================= -->
+    <!-- GIFTS -->
 
-    <section
-        class="page gifts"
-        id="gifts"
-    >
+    <section id="gifts" class="page gifts">
 
-        <a
-            href="#"
-            class="home-btn"
-            onclick="goHome(event)"
+        <button
+            class="home-button"
+            type="button"
         >
             ⌂
-        </a>
+        </button>
 
 
-        <p class="eyebrow">
+        <p class="small-text">
             A LITTLE NOTE
         </p>
 
-
-        <h2>
-            Gift <span>Ideas</span>
-        </h2>
+        <h2>Gift Ideas</h2>
 
 
-        <div class="gift-letter">
+        <div class="card text-card">
 
             <p>
-                Your presence is already the best gift! ♡
+                Your presence is already
+                the best gift! ♡
             </p>
 
             <p>
-                If you'd like to bring something,
-                here are a few things I love:
+                But if you'd like to bring
+                something, here are a few ideas:
             </p>
+
 
             <ul>
 
-                <li>
-                    🎀 Art & craft supplies
-                </li>
+                <li>🎀 Art & craft supplies</li>
 
-                <li>
-                    📚 Story books
-                </li>
+                <li>📚 Story books</li>
 
-                <li>
-                    🧸 Cute toys
-                </li>
+                <li>🧸 Cute toys</li>
 
-                <li>
-                    🌸 Anything pink, pretty & fun!
-                </li>
+                <li>🌸 Anything fun and pretty!</li>
 
             </ul>
 
@@ -382,55 +242,34 @@
 
 
 
-    <!-- =================================================
-         GALLERY
-    ================================================= -->
+    <!-- GALLERY -->
 
-    <section
-        class="page gallery-page"
-        id="gallery"
-    >
+    <section id="gallery" class="page gallery">
 
-        <a
-            href="#"
-            class="home-btn"
-            onclick="goHome(event)"
+        <button
+            class="home-button"
+            type="button"
         >
             ⌂
-        </a>
+        </button>
 
 
-        <p class="eyebrow">
+        <p class="small-text">
             LITTLE MOMENTS
         </p>
 
-
-        <h2>
-            My <span>Gallery</span>
-        </h2>
+        <h2>Gallery</h2>
 
 
-        <div class="photo-grid">
+        <div class="gallery-grid">
 
-            <img
-                src="images/gallery1.jpg"
-                alt=""
-            >
+            <img src="./images/gallery1.jpg" alt="">
 
-            <img
-                src="images/gallery2.jpg"
-                alt=""
-            >
+            <img src="./images/gallery2.jpg" alt="">
 
-            <img
-                src="images/gallery3.jpg"
-                alt=""
-            >
+            <img src="./images/gallery3.jpg" alt="">
 
-            <img
-                src="images/gallery4.jpg"
-                alt=""
-            >
+            <img src="./images/gallery4.jpg" alt="">
 
         </div>
 
@@ -438,54 +277,45 @@
 
 
 
-    <!-- =================================================
-         COUNTDOWN
-    ================================================= -->
+    <!-- COUNTDOWN -->
 
-    <section
-        class="page countdown-page"
-        id="countdown"
-    >
+    <section id="countdown" class="page countdown-page">
 
-        <a
-            href="#"
-            class="home-btn"
-            onclick="goHome(event)"
+        <button
+            class="home-button"
+            type="button"
         >
             ⌂
-        </a>
+        </button>
 
 
-        <p class="eyebrow">
-            COUNTING DOWN THE DAYS
+        <p class="small-text">
+            COUNTING DOWN
         </p>
 
-
-        <h2>
-            See you in <span>...</span>
-        </h2>
+        <h2>See You Soon!</h2>
 
 
         <div class="countdown">
 
             <div>
                 <strong id="days">00</strong>
-                <small>DAYS</small>
+                <span>DAYS</span>
             </div>
 
             <div>
                 <strong id="hours">00</strong>
-                <small>HOURS</small>
+                <span>HOURS</span>
             </div>
 
             <div>
                 <strong id="minutes">00</strong>
-                <small>MINUTES</small>
+                <span>MINUTES</span>
             </div>
 
             <div>
                 <strong id="seconds">00</strong>
-                <small>SECONDS</small>
+                <span>SECONDS</span>
             </div>
 
         </div>
@@ -494,48 +324,35 @@
 
 
 
-    <!-- =================================================
-         RSVP
-    ================================================= -->
+    <!-- RSVP -->
 
-    <section
-        class="page rsvp"
-        id="rsvp"
-    >
+    <section id="rsvp" class="page rsvp">
 
-        <a
-            href="#"
-            class="home-btn"
-            onclick="goHome(event)"
+        <button
+            class="home-button"
+            type="button"
         >
             ⌂
-        </a>
+        </button>
 
 
-        <p class="eyebrow">
+        <p class="small-text">
             WE HOPE YOU CAN COME!
         </p>
 
-
-        <h2>
-            RSVP <span>Here!</span>
-        </h2>
+        <h2>RSVP</h2>
 
 
         <form id="rsvpForm">
 
             <input
                 type="text"
-                name="name"
                 placeholder="Your name"
                 required
             >
 
 
-            <select
-                name="attendance"
-                required
-            >
+            <select required>
 
                 <option value="">
                     Will you be joining us?
@@ -552,18 +369,7 @@
             </select>
 
 
-            <input
-                type="number"
-                name="guests"
-                min="1"
-                value="1"
-                placeholder="Number of guests"
-            >
-
-
             <textarea
-                name="message"
-                rows="4"
                 placeholder="Leave a birthday message ♡"
             ></textarea>
 
@@ -581,35 +387,23 @@
 
 
 
-    <!-- =================================================
-         FOOTER
-    ================================================= -->
+    <!-- FOOTER -->
 
     <footer>
 
-        <a
-            href="#"
-            class="footer-home"
-            onclick="goHome(event)"
+        <button
+            class="home-button footer-button"
+            type="button"
         >
-            ⌂ HOME
-        </a>
+            ⌂
+        </button>
 
 
-        <div class="footer-flower">
-            ❀
-        </div>
-
-
-        <p class="eyebrow">
+        <p class="small-text">
             WITH LOVE
         </p>
 
-
-        <h2>
-            [CHILD'S NAME]
-        </h2>
-
+        <h2>[CHILD'S NAME]</h2>
 
         <p>
             Can't wait to celebrate with you! ♡
@@ -618,13 +412,12 @@
     </footer>
 
 
-</main>
+</div>
 
 
+<!-- JAVASCRIPT -->
 
-<!-- JavaScript -->
-
-<script src="script.js"></script>
+<script src="./script.js"></script>
 
 </body>
 </html>
