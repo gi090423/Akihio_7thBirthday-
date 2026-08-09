@@ -1,263 +1,359 @@
-const openButton = document.getElementById("openInvitation");
-const cover = document.getElementById("cover");
-const invitation = document.getElementById("invitation");
-
-const music = document.getElementById("music");
-const musicBtn = document.getElementById("musicBtn");
-
-
-
-/* =========================================
+/* =====================================================
    OPEN INVITATION
-========================================= */
+===================================================== */
 
-openButton.addEventListener("click", function () {
+const openButton =
+    document.getElementById("openInvitation");
 
-  openButton.classList.add("open");
+const cover =
+    document.getElementById("cover");
 
-  setTimeout(function () {
+const invitation =
+    document.getElementById("invitation");
 
-    cover.style.display = "none";
 
-    invitation.classList.remove("hidden");
 
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant"
+openButton.addEventListener(
+    "click",
+    function () {
+
+        openButton.classList.add("open");
+
+
+        setTimeout(
+            function () {
+
+                /*
+                 * Hide the envelope
+                 */
+
+                cover.style.display = "none";
+
+
+                /*
+                 * Show invitation
+                 */
+
+                invitation.classList.remove("hidden");
+
+
+                /*
+                 * Start at very top
+                 */
+
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: "instant"
+                });
+
+
+                document.documentElement.scrollTop = 0;
+
+                document.body.scrollTop = 0;
+
+
+            },
+            850
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   HOME BUTTON
+===================================================== */
+
+function goHome(event) {
+
+    /*
+     * Prevent the "#" link
+     * from doing its own navigation.
+     */
+
+    event.preventDefault();
+
+    event.stopPropagation();
+
+
+
+    /*
+     * Find the Home section.
+     */
+
+    const home =
+        document.getElementById("home");
+
+
+    if (!home) {
+
+        return;
+
+    }
+
+
+
+    /*
+     * Scroll directly to the
+     * Home section.
+     */
+
+    home.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
     });
 
-  }, 850);
 
 
-  /* Start music if available */
+    /*
+     * Extra fallback for browsers
+     * that handle scroll differently.
+     */
 
-  if (music.src) {
+    setTimeout(
+        function () {
 
-    music.play().catch(function () {});
+            if (
+                window.scrollY > 20
+            ) {
 
-  }
+                window.scrollTo({
+                    top: home.offsetTop,
+                    left: 0,
+                    behavior: "smooth"
+                });
 
-});
+            }
 
-
-
-/* =========================================
-   HOME BUTTON
-========================================= */
-
-document.addEventListener("click", function (event) {
-
-  const homeButton =
-    event.target.closest(".home-btn") ||
-    event.target.closest(".footer-home");
-
-
-  if (!homeButton) {
-    return;
-  }
-
-
-  /*
-    IMPORTANT:
-
-    Stop the browser from doing its normal
-    anchor navigation.
-
-    Instead, we manually scroll to #home.
-  */
-
-  event.preventDefault();
-
-
-  const homeSection =
-    document.getElementById("home");
-
-
-  if (!homeSection) {
-    return;
-  }
-
-
-  /*
-    Scroll directly to the home section.
-  */
-
-  homeSection.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-
-
-  /*
-    Update the URL without causing
-    another jump.
-  */
-
-  history.replaceState(
-    null,
-    "",
-    "#home"
-  );
-
-});
-
-
-
-/* =========================================
-   MUSIC BUTTON
-========================================= */
-
-musicBtn.addEventListener("click", function () {
-
-  /*
-    If you haven't added music yet,
-    show a reminder.
-  */
-
-  if (!music.src) {
-
-    alert(
-      "Add music.mp3 beside index.html, then uncomment the source line in index.html."
+        },
+        150
     );
 
-    return;
-
-  }
 
 
-  if (music.paused) {
+    /*
+     * Remove # from URL.
+     */
 
-    music.play();
+    if (
+        window.history &&
+        window.history.replaceState
+    ) {
 
-    musicBtn.textContent = "❚❚";
+        window.history.replaceState(
+            null,
+            "",
+            window.location.pathname
+        );
 
-  } else {
+    }
 
-    music.pause();
-
-    musicBtn.textContent = "♫";
-
-  }
-
-});
+}
 
 
 
-/* =========================================
+/* =====================================================
    COUNTDOWN
-========================================= */
+===================================================== */
 
 /*
-   CHANGE YOUR PARTY DATE HERE.
-*/
+ * CHANGE YOUR BIRTHDAY DATE HERE.
+ *
+ * Format:
+ *
+ * "Month Day, Year HH:MM:SS"
+ */
 
 const birthday =
-  new Date(
-    "September 12, 2026 15:00:00"
-  ).getTime();
+    new Date(
+        "September 12, 2026 15:00:00"
+    ).getTime();
 
 
 
 function updateCountdown() {
 
-  const now = Date.now();
-
-  const difference =
-    birthday - now;
+    const now =
+        new Date().getTime();
 
 
-  if (difference <= 0) {
-
-    document.getElementById("days").textContent = "00";
-    document.getElementById("hours").textContent = "00";
-    document.getElementById("minutes").textContent = "00";
-    document.getElementById("seconds").textContent = "00";
-
-    return;
-
-  }
+    const difference =
+        birthday - now;
 
 
-  const days =
-    Math.floor(
-      difference / 86400000
-    );
+
+    /*
+     * Birthday has arrived.
+     */
+
+    if (difference <= 0) {
+
+        document.getElementById(
+            "days"
+        ).textContent = "00";
+
+        document.getElementById(
+            "hours"
+        ).textContent = "00";
+
+        document.getElementById(
+            "minutes"
+        ).textContent = "00";
+
+        document.getElementById(
+            "seconds"
+        ).textContent = "00";
+
+        return;
+
+    }
 
 
-  const hours =
-    Math.floor(
-      difference / 3600000
-    ) % 24;
+
+    /*
+     * Calculate days.
+     */
+
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
 
 
-  const minutes =
-    Math.floor(
-      difference / 60000
-    ) % 60;
+
+    /*
+     * Calculate hours.
+     */
+
+    const hours =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60)
+        ) % 24;
 
 
-  const seconds =
-    Math.floor(
-      difference / 1000
-    ) % 60;
+
+    /*
+     * Calculate minutes.
+     */
+
+    const minutes =
+        Math.floor(
+            difference /
+            (1000 * 60)
+        ) % 60;
 
 
-  document.getElementById("days").textContent =
-    String(days).padStart(2, "0");
+
+    /*
+     * Calculate seconds.
+     */
+
+    const seconds =
+        Math.floor(
+            difference /
+            1000
+        ) % 60;
 
 
-  document.getElementById("hours").textContent =
-    String(hours).padStart(2, "0");
+
+    /*
+     * Display countdown.
+     */
+
+    document.getElementById(
+        "days"
+    ).textContent =
+        String(days).padStart(
+            2,
+            "0"
+        );
 
 
-  document.getElementById("minutes").textContent =
-    String(minutes).padStart(2, "0");
+    document.getElementById(
+        "hours"
+    ).textContent =
+        String(hours).padStart(
+            2,
+            "0"
+        );
 
 
-  document.getElementById("seconds").textContent =
-    String(seconds).padStart(2, "0");
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        String(minutes).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        String(seconds).padStart(
+            2,
+            "0"
+        );
 
 }
 
 
+
+/*
+ * Start countdown.
+ */
+
 updateCountdown();
 
+
 setInterval(
-  updateCountdown,
-  1000
+    updateCountdown,
+    1000
 );
 
 
 
-/* =========================================
+/* =====================================================
    RSVP
-========================================= */
+===================================================== */
 
-document
-  .getElementById("rsvpForm")
-  .addEventListener(
+const rsvpForm =
+    document.getElementById(
+        "rsvpForm"
+    );
+
+
+rsvpForm.addEventListener(
     "submit",
     function (event) {
 
-      event.preventDefault();
+        event.preventDefault();
 
 
-      const formData =
-        new FormData(this);
+        const formData =
+            new FormData(
+                rsvpForm
+            );
 
 
-      const name =
-        formData.get("name");
+        const name =
+            formData.get("name");
 
 
-      document.getElementById(
-        "success"
-      ).textContent =
-        `Thank you, ${name}! We can't wait to celebrate with you. ♡`;
+        document.getElementById(
+            "success"
+        ).textContent =
+
+            "Thank you, " +
+            name +
+            "! We can't wait to celebrate with you. ♡";
 
 
-      this.reset();
+        rsvpForm.reset();
 
     }
-  );
+);
