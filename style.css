@@ -1,81 +1,1259 @@
-/* =========================================
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    margin: 0;
+    padding: 0;
+
+    scroll-behavior: smooth;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background: #fff7f5;
+
+    color: #78465a;
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+
+/* =====================================================
+   COVER
+===================================================== */
+
+.cover {
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 10%,
+            #fff9fa 0 10%,
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 85% 85%,
+            #ffffff 0 5%,
+            transparent 28%
+        ),
+
+        #f6cfdb;
+}
+
+
+.cover::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 14px;
+
+    border:
+        1px solid
+        rgba(185, 97, 126, .25);
+
+}
+
+
+.cover::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 25px;
+
+    border:
+        1px dashed
+        rgba(185, 97, 126, .16);
+
+}
+
+
+.cover-content {
+
+    width: min(94vw, 560px);
+
+    min-height: 94vh;
+    min-height: 94svh;
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    padding-top: 32px;
+
+    background:
+        rgba(255, 250, 248, .55);
+
+    box-shadow:
+        0 20px 55px
+        rgba(100, 50, 70, .12);
+
+    overflow: hidden;
+}
+
+
+.cover-copy {
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.cover-copy p {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+
+    color: #b9617e;
+}
+
+
+.cover-copy h1 {
+
+    margin: 5px 0 0;
+}
+
+
+.cover-copy h1 span {
+
+    font:
+        normal
+        clamp(48px, 13vw, 78px)
+        "Great Vibes",
+        cursive;
+
+    color: #b9617e;
+}
+
+
+.cover-copy h2 {
+
+    margin: 0;
+
+    font:
+        italic
+        28px
+        "Cormorant Garamond",
+        serif;
+
+    color: #c89b48;
+}
+
+
+
+/* =====================================================
+   COVER PHOTO
+===================================================== */
+
+.little-photo {
+
+    position: absolute;
+
+    left: 7%;
+
+    top: 5%;
+
+    width: 130px;
+
+    height: 145px;
+
+    padding: 5px;
+
+    background: white;
+
+    transform: rotate(-8deg);
+
+    box-shadow:
+        0 10px 25px
+        rgba(100, 50, 70, .18);
+
+    z-index: 3;
+}
+
+
+.little-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.envelope-wrap {
+
+    position: absolute;
+
+    bottom: 10%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+}
+
+
+.envelope {
+
+    width: min(78vw, 370px);
+
+    aspect-ratio: 1.45;
+
+    border: 0;
+
+    background: transparent;
+
+    position: relative;
+
+    cursor: pointer;
+
+    filter:
+        drop-shadow(
+            0 15px 17px
+            rgba(100, 45, 65, .25)
+        );
+}
+
+
+.envelope-body {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #d987a2;
+
+    border-radius: 4px;
+}
+
+
+.envelope-body::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            transparent 49%,
+            #c87591 50%,
+            transparent 51%
+        ),
+
+        linear-gradient(
+            35deg,
+            transparent 49%,
+            #c87591 50%,
+            transparent 51%
+        );
+}
+
+
+.flap {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 65%;
+
+    background: #e8a6ba;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin: top center;
+
+    transition:
+        transform .9s ease;
+
+    z-index: 4;
+}
+
+
+.letter {
+
+    position: absolute;
+
+    z-index: 3;
+
+    background: #fff9f5;
+
+    left: 9%;
+
+    top: 7%;
+
+    width: 82%;
+
+    height: 76%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    font:
+        40px/0.9
+        "Great Vibes",
+        cursive;
+
+    color: #b9617e;
+
+    box-shadow:
+        0 5px 15px
+        rgba(100, 45, 65, .12);
+
+    transition:
+        transform .9s ease;
+}
+
+
+.seal {
+
+    position: absolute;
+
+    z-index: 8;
+
+    left: 50%;
+
+    top: 52%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background: #a94f68;
+
+    color: white;
+
+    font-size: 22px;
+
+    transition: .3s;
+}
+
+
+.envelope.open .flap {
+
+    transform:
+        rotateX(180deg);
+}
+
+
+.envelope.open .letter {
+
+    transform:
+        translateY(-85px);
+}
+
+
+.envelope.open .seal {
+
+    opacity: 0;
+}
+
+
+.open-text {
+
+    font:
+        26px
+        "Great Vibes",
+        cursive;
+
+    color: #96546c;
+
+    margin-top: -5px;
+}
+
+
+
+/* =====================================================
+   DECORATIONS
+===================================================== */
+
+.flower,
+.butterfly {
+
+    position: absolute;
+
+    z-index: 3;
+}
+
+
+.flower {
+
+    font-size: 75px;
+
+    color: #d88fa6;
+
+    opacity: .6;
+}
+
+
+.flower-a {
+
+    right: -10px;
+
+    top: 15%;
+}
+
+
+.flower-b {
+
+    left: -20px;
+
+    bottom: 12%;
+}
+
+
+.butterfly {
+
+    font-size: 34px;
+
+    animation:
+        float 4s
+        ease-in-out
+        infinite;
+}
+
+
+.butterfly-a {
+
+    right: 8%;
+
+    top: 32%;
+}
+
+
+.butterfly-b {
+
+    left: 8%;
+
+    bottom: 29%;
+}
+
+
+@keyframes float {
+
+    50% {
+
+        transform:
+            translateY(-12px)
+            rotate(5deg);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PAGES
+===================================================== */
+
+.page {
+
+    width: 100%;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    padding:
+        80px 20px;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.hero {
+
+    background:
+        linear-gradient(
+            #f8dce6 0%,
+            #fff8f6 80%
+        );
+}
+
+
+.plaid {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .14;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            transparent 0 30px,
+            #c56d89 31px 33px
+        ),
+
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 30px,
+            #c56d89 31px 33px
+        );
+
+    pointer-events: none;
+}
+
+
+
+/* =====================================================
    HOME BUTTON
-========================================= */
+===================================================== */
 
 .home-btn {
-  position: absolute !important;
 
-  top: 18px;
-  right: 18px;
+    position: absolute;
 
-  z-index: 9999;
+    top: 20px;
 
-  width: 44px;
-  height: 44px;
+    right: 20px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    z-index: 99999;
 
-  border-radius: 50%;
+    width: 45px;
 
-  background: #ffffff;
+    height: 45px;
 
-  border: 1px solid #dca9b9;
+    display: flex;
 
-  color: #b9617e;
+    align-items: center;
 
-  text-decoration: none;
+    justify-content: center;
 
-  font-family: Arial, sans-serif;
+    border-radius: 50%;
 
-  font-size: 22px;
+    background: #ffffff;
 
-  line-height: 1;
+    border:
+        1px solid
+        #dca9b9;
 
-  box-shadow:
-    0 5px 15px rgba(116, 67, 87, 0.16);
+    color: #b9617e;
 
-  cursor: pointer;
+    font-family: Arial, sans-serif;
 
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+    font-size: 22px;
+
+    line-height: 1;
+
+    box-shadow:
+        0 5px 15px
+        rgba(116, 67, 87, .16);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease;
 }
 
 
 .home-btn:hover {
 
-  transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
-  background: #fff8f6;
+}
 
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero > *:not(.plaid) {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.eyebrow {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+
+    color: #b9617e;
+}
+
+
+.hero h1 {
+
+    margin: 0;
+}
+
+
+.hero h1 span {
+
+    font:
+        normal
+        clamp(48px, 13vw, 78px)
+        "Great Vibes",
+        cursive;
+
+    color: #b9617e;
+}
+
+
+.hero h2 {
+
+    margin:
+        0 0 20px;
+
+    font:
+        italic
+        30px
+        "Cormorant Garamond",
+        serif;
+
+    color: #c89b48;
+}
+
+
+
+/* =====================================================
+   MAIN PHOTO
+===================================================== */
+
+.portrait-frame {
+
+    width:
+        min(76vw, 330px);
+
+    height: 390px;
+
+    padding: 8px;
+
+    background: #fff;
+
+    margin:
+        0 auto 30px;
+
+    box-shadow:
+        0 18px 35px
+        rgba(116, 67, 87, .13);
+
+    transform:
+        rotate(2deg);
+}
+
+
+.portrait-frame img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+
+/* =====================================================
+   STORY
+===================================================== */
+
+.story {
+
+    max-width: 530px;
+
+    margin:
+        30px auto;
+
+    font:
+        italic
+        20px/1.45
+        "Cormorant Garamond",
+        serif;
+}
+
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu {
+
+    width:
+        min(90vw, 380px);
+
+    margin:
+        auto;
+
+    display: grid;
+
+    gap: 11px;
+}
+
+
+.menu a {
+
+    background: #fff9f6;
+
+    border:
+        2px solid
+        #dda1b5;
+
+    border-radius: 28px;
+
+    padding: 12px;
+
+    color: #b9617e;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 5px 13px
+        rgba(116, 67, 87, .07);
+}
+
+
+
+/* =====================================================
+   SECTION TITLES
+===================================================== */
+
+.details h2,
+.gifts h2,
+.gallery-page h2,
+.countdown-page h2,
+.rsvp h2 {
+
+    font:
+        600
+        48px
+        "Cormorant Garamond",
+        serif;
+
+    margin:
+        5px 0 30px;
+}
+
+
+.details h2 span,
+.gifts h2 span,
+.gallery-page h2 span,
+.countdown-page h2 span,
+.rsvp h2 span {
+
+    font:
+        normal
+        48px
+        "Great Vibes",
+        cursive;
+
+    color: #c89b48;
+}
+
+
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+.details {
+
+    background: #fff1f5;
+}
+
+
+.detail-card {
+
+    width:
+        min(92vw, 540px);
+
+    margin:
+        12px auto;
+
+    padding:
+        25px 18px;
+
+    background: #fff;
+
+    border:
+        1px solid
+        #edd0d9;
+
+    box-shadow:
+        0 10px 25px
+        rgba(116, 67, 87, .05);
+}
+
+
+.detail-icon {
+
+    font-size: 27px;
+
+    color: #c89b48;
+}
+
+
+.label {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #b9617e;
+
+    font-weight: 700;
+}
+
+
+.detail-card h3 {
+
+    font:
+        600
+        24px
+        "Cormorant Garamond",
+        serif;
+
+    margin:
+        8px 0;
+}
+
+
+.detail-card p {
+
+    font-size: 11px;
+}
+
+
+.detail-card a {
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    color: #b9617e;
+}
+
+
+
+/* =====================================================
+   GIFTS
+===================================================== */
+
+.gifts {
+
+    background: #fffaf6;
+}
+
+
+.gift-letter {
+
+    width:
+        min(92vw, 560px);
+
+    margin: auto;
+
+    background: #fff;
+
+    padding: 32px;
+
+    border:
+        1px solid
+        #edd0d9;
+
+    box-shadow:
+        0 15px 30px
+        rgba(116, 67, 87, .06);
+
+    text-align: left;
+
+    font:
+        20px/1.4
+        "Cormorant Garamond",
+        serif;
+}
+
+
+.gift-letter li {
+
+    margin:
+        8px 0;
+}
+
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery-page {
+
+    background: #fff1f5;
+}
+
+
+.photo-grid {
+
+    width:
+        min(92vw, 700px);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.photo-grid img {
+
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+
+    background: #f1cad7;
+}
+
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown-page {
+
+    background:
+        linear-gradient(
+            #fffaf7,
+            #f8dce6
+        );
+}
+
+
+.countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    flex-wrap: wrap;
+}
+
+
+.countdown div {
+
+    width: 75px;
+
+    background: #fff;
+
+    padding: 14px 5px;
+
+    border:
+        1px solid
+        #ecd0d9;
+}
+
+
+.countdown strong {
+
+    display: block;
+
+    font:
+        600
+        32px
+        "Cormorant Garamond",
+        serif;
+
+    color: #b9617e;
+}
+
+
+.countdown small {
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+
+
+/* =====================================================
+   RSVP
+===================================================== */
+
+.rsvp {
+
+    background: #fff1f5;
+}
+
+
+form {
+
+    width:
+        min(92vw, 500px);
+
+    margin: auto;
+
+    display: grid;
+
+    gap: 12px;
+}
+
+
+form input,
+form select,
+form textarea {
+
+    width: 100%;
+
+    padding:
+        13px 15px;
+
+    border:
+        1px solid
+        #dfb2c1;
+
+    border-radius: 10px;
+
+    background: #fffaf9;
+
+    color: #78465a;
+
+    outline: none;
+}
+
+
+form button {
+
+    border: 0;
+
+    border-radius: 28px;
+
+    padding: 14px;
+
+    background: #b9617e;
+
+    color: #fff;
+
+    font-weight: 700;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+
+#success {
+
+    color: #b9617e;
+
+    font-size: 13px;
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    padding:
+        80px 20px;
+
+    text-align: center;
+
+    background: #f7d6e1;
 }
 
 
 .footer-home {
 
-  display: inline-block;
+    display: inline-block;
 
-  padding: 9px 18px;
+    padding:
+        9px 18px;
 
-  border:
-    1px solid #dca9b9;
+    border:
+        1px solid
+        #dca9b9;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  color: #b9617e;
+    color: #b9617e;
 
-  background: #fff8f6;
+    background: #fff8f6;
 
-  font-size: 10px;
+    font-size: 10px;
 
-  font-weight: 700;
+    font-weight: 700;
 
-  letter-spacing: 1px;
+    letter-spacing: 1px;
+}
 
-  text-decoration: none;
 
-  margin-bottom: 18px;
+.footer-flower {
+
+    font-size: 40px;
+
+    color: #d18ba2;
+}
+
+
+footer h2 {
+
+    font:
+        normal
+        60px
+        "Great Vibes",
+        cursive;
+
+    color: #b9617e;
+
+    margin: 5px;
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .little-photo {
+
+        width: 105px;
+
+        height: 120px;
+
+    }
+
+
+    .cover-content {
+
+        min-height: 680px;
+
+    }
+
+
+    .photo-grid img {
+
+        height: 210px;
+
+    }
 
 }
